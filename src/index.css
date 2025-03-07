@@ -11,3 +11,140 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#banniere {
+  background: linear-gradient(to bottom, #ffffff00, #000000f5, #000000), url(./assets/images/banniere.png);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  height: fit-content;
+}
+
+#footer {
+  background-color: #1D1B20;
+  background-size: cover;
+  color: azure;
+  position: absolute;
+  bottom: 0;
+  color: azure;
+  border-top: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
+  padding: 10px;
+  margin: auto;
+}
+
+#basic-nav-dropdown, #basic-nav-dropdown-item {
+  color: azure;
+}
+#basic-nav-dropdown:hover, #basic-nav-dropdown-item:hover {
+  color: #055d94;
+}
+.text-color {
+  color: azure !important;
+}
+.text-color:hover {
+  color: #055d94 !important;
+}
+
+#basic-nav-dropdown-item:hover {
+  background-color: azure;
+}
+
+#bg-body-tertiary {
+  background-color: #055d94;
+}
+
+.custom-dropdown-left {
+
+  display: flex;
+  justify-content: left;
+}
+
+.custom-dropdown .dropdown-menu {
+  background-color: #055d94;
+}
+.custom-color {
+  background-color: #055d94 !important;
+  color: azure !important;
+  padding: 10px 20px;
+  border: 1px solid azure !important;
+  border-radius: 5px;
+}
+.custom-color:hover{
+  background-color: #0d227096 !important;
+  color: azure !important;
+  padding: 10px 20px;
+  border: 1px solid azure !important;
+  border-radius: 5px;
+}
+
+.custom-toggle {
+  background-color: #055d94 !important;
+  color: azure !important;
+  padding: 10px 20px;
+  border: 1px solid azure !important;
+  border-radius: 5px;
+}
+
+.custom-toggle:hover {
+  background-color: #0d227096 !important;
+  color: azure !important;
+  padding: 10px 20px;
+  border: 1px solid azure !important;
+  border-radius: 5px;
+}
+
+.custom-toggle .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+#user-dropdown {
+  background-color: #055d94;
+  border:1px solid azure;
+  padding: 5px;
+  margin: 10px;
+  max-height: 70px;
+  border-radius: 20px;
+}
+
+.userContainer {
+  display: flex;
+  align-items: center;
+}
+
+.userCard {
+  color: azure;
+  margin-left: auto;           
+  font-weight: 600;
+  font-size: medium;  
+}
+#user-dropdown .dropdown-menu {
+  background-color: #055d94 !important;
+}
+
+.text-align-center {
+  text-align: center;
+  font-size: 24px; 
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.text-align-left {
+  text-align: left;
+  margin-left: 25px;
+}
+
+.logo {
+  width: 150px !important;
+  height: auto;
+  padding: 20px;
+}
+
+.copyright {
+  display: flex;
+  font-weight: 600;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
