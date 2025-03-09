@@ -6,11 +6,11 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 const Logo = "/assets/images/Logo.png";
 const Avatar = "/assets/images/avatar.svg";
-let Pseudo = "Pseudo";
+let Pseudo = "Pseudonyme";
 
 function Banner() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="nav">
       <Container fluid id="banniere">
         <Navbar.Brand href="#home"><img src={Logo} alt="Logo du site" width={160} height={160} className='d-inline-block align-top' /></Navbar.Brand>
         <Navbar.Toggle className="custom-toggle" aria-controls="navbarScroll" />
@@ -41,7 +41,7 @@ function Banner() {
             title={
               <div className='userContainer'>
                 <img src={Avatar} alt='User' width={60} height={60} className='rounded-circle item-center' style={{ marginRight: '25px', maxWidth: '120px' }} />
-                <div className='userCard'>Pseudonyme</div>
+                <div className='userCard'>{Pseudo}</div>
               </div>
             }
             id='user-dropdown'

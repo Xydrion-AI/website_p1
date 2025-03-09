@@ -1,31 +1,39 @@
 body {
+  z-index: -1;
   position: relative;
   background-image: linear-gradient(to top, #35aaf825, #00c3ff2a, #000000f5, #000000), url("./assets/images/binairies.png");
   background-size: cover;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
+  padding: 0;
+
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
+#root, main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
 #banniere {
   background: linear-gradient(to bottom, #ffffff00, #000000f5, #000000), url(./assets/images/banniere.png);
   background-size: cover;
-  background-position: center;
-  position: absolute;
-  top: 0;
-  height: fit-content;
+  position: relative;
 }
 
 #footer {
   background-color: #1D1B20;
   background-size: cover;
   color: azure;
-  position: absolute;
+  position: relative;
   bottom: 0;
   border-top: 2px solid azure;
   border-bottom: 2px solid azure;
@@ -50,6 +58,10 @@ code {
 
 .text-color:hover {
   color: #055d94 !important;
+}
+
+.text-color-2 {
+  color: azure !important;
 }
 
 #basic-nav-dropdown-item:hover {
@@ -156,4 +168,11 @@ code {
   justify-content: space-between;
   height: 100%;
   margin-right: 20px;
+}
+
+.carouselItem {
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
