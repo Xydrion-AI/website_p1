@@ -28,9 +28,9 @@ function Banner() {
       id: 'news',
       label: 'News',
       items: [
-        { label: 'Dernières news', link: "/#lastNews" },
-        { label: 'Développement informatique', link: "/#informaticNews" },
-        { label: 'Technologies', link: "/#technologies" }
+        { label: 'Dernières news', link: "/news#lastNews" },
+        { label: 'Développement informatique', link: "/news#informaticNews" },
+        { label: 'Technologies', link: "/news#technologies" }
       ],
       link: '/news'
     },
@@ -38,9 +38,9 @@ function Banner() {
       id: 'forums',
       label: 'Forums',
       items: [
-        { label: 'Discussions générales', link: "/#generalChat" },
-        { label: 'Veille technologique', link: "/#technoWatch" },
-        { label: 'Programmation', link: "/#programming" }
+        { label: 'Discussions générales', link: "/forums#generalChat" },
+        { label: 'Veille technologique', link: "/forums#technoWatch" },
+        { label: 'Programmation', link: "/forums#programming" }
       ],
       link: '/forums'
     }
