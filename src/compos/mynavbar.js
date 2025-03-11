@@ -5,7 +5,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
+
 
 const Logo = "/assets/images/Logo.png";
 const Avatar = "/assets/images/avatar.svg";
@@ -13,9 +14,36 @@ let Pseudo = "Pseudonyme";
 
 function Banner() {
   const newDropdown = [
-    { id: 'home', label: 'Accueil', items: ['Qui sommes-nous ?', 'A propos de la formation', 'Nous contacter'], link: '/' },
-    { id: 'news', label: 'News', items: ['Dernières news', 'Développement informatique', 'Technologies'], link: '/news' },
-    { id: 'forums', label: 'Forums', items: ['Discussions générales', 'Veille technologique', 'Programmation'], link: '/forums' },
+    {
+      id: 'home',
+      label: 'Accueil',
+      items: [
+        { label: 'Qui sommes-nous ?', link: '/#aboutUs' },
+        { label: 'A propos de la formation', link: '/#about' },
+        { label: 'Nous contacter', link: '/contact' }
+      ],
+      link: '/'
+    },
+    {
+      id: 'news',
+      label: 'News',
+      items: [
+        { label: 'Dernières news', link: "/#lastNews" },
+        { label: 'Développement informatique', link: "/#informaticNews" },
+        { label: 'Technologies', link: "/#technologies" }
+      ],
+      link: '/news'
+    },
+    {
+      id: 'forums',
+      label: 'Forums',
+      items: [
+        { label: 'Discussions générales', link: "/#generalChat" },
+        { label: 'Veille technologique', link: "/#technoWatch" },
+        { label: 'Programmation', link: "/#programming" }
+      ],
+      link: '/forums'
+    }
   ];
 
   return (
@@ -30,8 +58,8 @@ function Banner() {
             {newDropdown.map(({ id, label, items, link }) => (
               <NavDropdown key={id} title={label} id="basic-nav-dropdown-item" className='custom-dropdown'>
                 {items && items.map((item, index) => (
-                  <NavDropdown.Item key={index} as={Link} to={link} id="basic-nav-dropdown-item">
-                    {item}
+                  <NavDropdown.Item key={index} as={Link} to={item.link} id="basic-nav-dropdown-item">
+                    {item.label}
                   </NavDropdown.Item>
                 ))}
               </NavDropdown>

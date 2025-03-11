@@ -9,6 +9,7 @@ import Home from './pages/home/home';
 import News from './pages/news/news';
 import Forums from './pages/forums/forums';
 import Events from './pages/events/events';
+import Contact from "./pages/contactUs/contactus";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/forums" element={<Forums />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/contact" element={<Contact/>} />
         </Routes>
       </main>
       <Footer />

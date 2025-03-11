@@ -46,7 +46,7 @@ function Home() {
             <NewCarousel items={carouselItems1}/>
             <div className="container mx-auto text-center">
                 <div className="row">
-                    <div>
+                    <section id="aboutUs">
                         <h2 className="text-color-2 my-2">Qui sommes-nous ?</h2>
                         <p className="text-color-2 my-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est rem impedit
                             temporibus corrupti facere nostrum culpa officia libero, animi, nobis accusamus ullam pariatur
@@ -56,13 +56,13 @@ function Home() {
                             corporis ab eligendi blanditiis.
                             Cum a, esse animi harum deserunt ullam laborum quaerat reiciendis odio ratione sed. Ipsam quia in,
                             quam quis, id illum eaque sint numquam itaque, atque voluptatem eos cupiditate autem soluta?</p>
-                    </div>
+                    </section>
                 </div>
             </div>
             <NewCarousel items={carouselItems2}/>
             <div className="container mx-auto text-center text-color">
                 <div className="row">
-                    <div>
+                    <section id="about">
                         <h2 className="text-color-2 my-4">A propos de notre formation</h2>
                         <p className="text-color-2 my-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est rem impedit
                             temporibus corrupti facere nostrum culpa officia libero, animi, nobis accusamus ullam pariatur
@@ -72,7 +72,7 @@ function Home() {
                             corporis ab eligendi blanditiis.
                             Cum a, esse animi harum deserunt ullam laborum quaerat reiciendis odio ratione sed. Ipsam quia in,
                             quam quis, id illum eaque sint numquam itaque, atque voluptatem eos cupiditate autem soluta?</p>
-                    </div>
+                    </section>
                 </div>
             </div>
             <div className="container img-fluid text-center text-color">
