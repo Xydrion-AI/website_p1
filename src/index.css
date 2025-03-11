@@ -162,6 +162,7 @@ code {
 }
 
 .copyright {
+  font-size: 12px;
   display: flex;
   font-weight: 600;
   align-items: center;
