@@ -1,8 +1,9 @@
 import React from "react";
 import NewCarousel from '../../compos/carousel1';
-let VerticalBanner = './asset/image/bande_img.jpg'
+import NewCarouselSection from "../../compos/carouselSection";
 
 function Home() {
+    /*Configuration de mes carousel d'images*/
     const carouselItems1 = [
         { title: 'Image 1', image: '/assets/images/img1.jpg' },
         { title: 'Image 2', image: '/assets/images/img1.jpg' },
@@ -11,11 +12,11 @@ function Home() {
         { title: 'Image 5', image: '/assets/images/img1.jpg' },
     ];
     const carouselItems2 = [
-        { title: 'Image 1', image: '/assets/images/img2.jpg' },
-        { title: 'Image 2', image: '/assets/images/img2.jpg' },
-        { title: 'Image 3', image: '/assets/images/img2.jpg' },
-        { title: 'Image 4', image: '/assets/images/img2.jpg' },
-        { title: 'Image 5', image: '/assets/images/img2.jpg' },
+        { title: 'Image 1', image: '/assets/images/img5.jpg' },
+        { title: 'Image 2', image: '/assets/images/img5.jpg' },
+        { title: 'Image 3', image: '/assets/images/img5.jpg' },
+        { title: 'Image 4', image: '/assets/images/img5.jpg' },
+        { title: 'Image 5', image: '/assets/images/img5.jpg' },
     ];
     const carouselItems3 = [
         { title: 'Image 1', image: '/assets/images/img3.jpg' },
@@ -24,7 +25,13 @@ function Home() {
         { title: 'Image 4', image: '/assets/images/img3.jpg' },
         { title: 'Image 5', image: '/assets/images/img3.jpg' },
     ];
+    const carouselSections1 = [
+        { title: 'Image 1', image: '/assets/images/img4.jpg' },
+        { title: 'Image 2', image: '/assets/images/img4.jpg' },
+        { title: 'Image 3', image: '/assets/images/img4.jpg' },
+    ]
     return (
+        /*Encapsulement de mon HTML de page d'accueil avec mes différentes sections et leur id ainsi que mes composants */
         <>
             <div className="container mx-auto text-center presentation" id="introduction">
                 <div className="row" id="accueil">
@@ -76,7 +83,7 @@ function Home() {
                 </div>
             </div>
             <div className="container img-fluid text-center text-color">
-                <div><img src={VerticalBanner} id="longue-image" alt="Impossible d'afficher cette image" /></div>
+                <div><img src='/assets/images/bande_img.jpg' id="longue-image" alt="image longue" /></div>
             </div>
             <div className="container mx-auto my-5 text-center">
                 <div className="row">
@@ -85,7 +92,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <NewCarousel items={carouselItems3}/>
+            <NewCarouselSection items={carouselSections1}/>
         </>
     )
 

@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/zoom';
+import { Container } from 'react-bootstrap';
 
 
 function NewCarousel({ items }) {
@@ -13,31 +14,37 @@ function NewCarousel({ items }) {
       <Swiper
         spaceBetween={10}
         slidesPerView={3}
-        navigation= {true}
+        navigation={true}
         grabCursor={true}
         loop={true}
         autoplay={{ delay: 5000 }}
         pagination={{ clickable: true }}
         modules={[Navigation, Pagination, Autoplay, Zoom]}
         breakpoints={{
-          320: {
+          0: {
             slidesPerView: 1,
             spaceBetween: 10,
           },
           480: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 10,
           },
           640: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+          },
+          1025: {
             slidesPerView: 4,
             spaceBetween: 10,
           },
         }}
       >
         {items.map((items, index) => (
-          <SwiperSlide key={index} className="text-color">
+          <Container className='mx-auto text-center my-5'>
+            <SwiperSlide key={index} className="text-color">
             <img className="carouselItem" src={items.image} alt={items.title || "Impossible d'afficher l'image"} />
           </SwiperSlide>
+          </Container>
         ))}
       </Swiper>
     </div>
