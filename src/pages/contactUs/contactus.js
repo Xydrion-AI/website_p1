@@ -1,17 +1,15 @@
 import React from "react";
-import { Container, FormLabel } from "react-bootstrap";
-import Row from "react-bootstrap/Row"
-import { Col } from "react-bootstrap"
+import { Container, FormLabel, Col, Row } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
 import InputGroup from 'react-bootstrap/InputGroup';
 
 function Contact() {
     return (
-        <>  
-            <Container  className="contactContainer text-color-2">
+        <>
+            <Container className="contactContainer text-color-2">
                 <Form>
-                <h1 className="text-color-2 mb-5">Nous contacter</h1>
+                    <h1 className="text-color-2 mb-5">Nous contacter</h1>
                     <FormLabel>Entrer votre nom et prénom</FormLabel>
                     <Row className="align-items-center">
                         <Col xs={12} md={6} >

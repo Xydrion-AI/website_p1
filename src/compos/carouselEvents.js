@@ -1,16 +1,16 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import Button from 'react-bootstrap/Button';
+import { Navigation, Pagination, Autoplay, Zoom } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/zoom';
+import { Container, Row } from 'react-bootstrap';
 
 
-function NewCarouselSection({ items }) {
+function NewCarouselEvent({ items }) {
   return (
-    <div>
+    <Container>
       <Swiper
         spaceBetween={30}
         slidesPerView={3}
@@ -35,16 +35,20 @@ function NewCarouselSection({ items }) {
         }}
       >
         {items.map((items, index) => (
-          <SwiperSlide key={index} className="text-color mb-5">
-            <img className="carouselItemSection" src={items.image} alt={items.title} />
-            <div className="d-flex justify-content-center">
-              <Button className="custom-button">Entrer dans cette section</Button>
-            </div>
-          </SwiperSlide>
+          <Container className='mx-auto text-center my-5'>
+            <SwiperSlide key={index} className="text-color-3">
+              <img className="carouselItem" src={items.image} alt={items.title || "Impossible d'afficher l'image"} />
+              <Row className="d-flex justify-content-center">
+                <h3 className="custom-title">{items.articleTitle}</h3>
+                <p className='date'>{items.date}</p>
+                <p className="custom-description">{items.description}</p>
+              </Row>
+            </SwiperSlide>
+          </Container>
         ))}
       </Swiper>
-    </div>
+    </Container>
   );
 }
 
-export default NewCarouselSection;
+export default NewCarouselEvent;

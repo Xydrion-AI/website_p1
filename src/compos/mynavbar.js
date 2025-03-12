@@ -3,8 +3,6 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import { HashLink as Link } from 'react-router-hash-link';
 
 /*Après avoir importé les éléments nécessaires à notre navbar, on débute la configuration
@@ -33,7 +31,7 @@ function Banner() {
       items: [
         { label: 'Qui sommes-nous ?', link: '/#aboutUs' },
         { label: 'A propos de la formation', link: '/#about' },
-        { label: 'Nous contacter', link: '/contact' }
+        { label: 'Événements', link: '/#events' }
       ],
       link: '/'
     },
@@ -47,16 +45,7 @@ function Banner() {
       ],
       link: '/news'
     },
-    {
-      id: 'forums',
-      label: 'Forums',
-      items: [
-        { label: 'Discussions générales', link: "/forums#generalChat" },
-        { label: 'Veille technologique', link: "/forums#technoWatch" },
-        { label: 'Programmation', link: "/forums#programming" }
-      ],
-      link: '/forums'
-    }
+
 
   ];
   {/*On passe à la navbar en elle même que l'on choisi de mettre dans un container fluid afin qu'elle prenne toute longueur de page.
@@ -83,13 +72,8 @@ function Banner() {
               </NavDropdown>
             ))}
             {/* Création d'un lien de navigation "direct"*/}
-            <Nav.Link as={Link} to="/events" id="basic-nav-dropdown-item">Événements</Nav.Link>
+            <Nav.Link as={Link} to="/contact" id="basic-nav-dropdown-item">Nous contacter</Nav.Link>
           </Nav>
-          {/* Création du formulaire de recherche et de son bouton*/}
-          <Form className="d-flex">
-            <Form.Control type="search" placeholder="Recherche..." aria-label="Search" />
-            <Button className="custom-color">Rechercher</Button>
-          </Form>
           {/* Création du dropdown utilisateur*/}
           <NavDropdown
             className='custom-dropdown-left custom-dropdown'

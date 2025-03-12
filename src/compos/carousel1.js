@@ -10,7 +10,7 @@ import { Container } from 'react-bootstrap';
 
 function NewCarousel({ items }) {
   return (
-    <div>
+    <Container>
       <Swiper
         spaceBetween={10}
         slidesPerView={3}
@@ -47,7 +47,7 @@ function NewCarousel({ items }) {
           </Container>
         ))}
       </Swiper>
-    </div>
+    </Container>
   );
 }
 

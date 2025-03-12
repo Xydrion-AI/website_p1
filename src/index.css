@@ -6,10 +6,21 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 100vh;
+
   margin: 0;
   padding: 0;
-  font-size: 14px;
+}
+
+h2 {
+  font-size: x-large !important;
+}
+
+h3 {
+  font-size: larger !important;
+}
+
+h4 {
+  font-size: large !important;
 }
 
 code {
@@ -32,15 +43,12 @@ main {
 
 #footer {
   background-color: #1D1B20;
-  background-size: cover;
   color: azure;
   position: relative;
-  bottom: 0;
   border-top: 2px solid azure;
   border-bottom: 2px solid azure;
   padding: 10px;
-  margin: auto;
-  z-index: 10;
+  height: fit-content;
 }
 
 #basic-nav-dropdown,
@@ -194,13 +202,24 @@ main {
   color: azure !important;
 }
 
+.text-color-3 {
+  color: azure !important;
+  font-weight: 300;
+}
+
 .contactContainer {
   margin-top: 100px;
   margin-bottom: 100px;
   padding-bottom: 0px;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+}
+
+.date {
+  font-size: large !important;
+  font-weight: 500;
+  color: #9c9c9c;
+  font-style: italic;
 }
 
 .custom-button {
@@ -213,12 +232,25 @@ main {
   border-radius: 5px;
 }
 
+.link {
+  text-decoration: none;
+}
+
+.informations {
+  text-align: justify;
+}
+
+.tabbed {
+  padding-left: 1em;
+  list-style-position: inside;
+}
+
 /*Quelques requêtes média pour adapter des tailles en fonction de la résolution*/
 
 
 @media (min-width: 768px) {
   body {
-    font-size: 18px !important;
+    font-size: 16px !important;
   }
 
   .logo {
@@ -232,7 +264,7 @@ main {
 
 @media (min-width: 1024px) {
   body {
-    font-size: 20px !important;
+    font-size: 18px !important;
   }
 
   .logo {
@@ -250,6 +282,6 @@ main {
 
 @media (min-width: 1440px) {
   body {
-    font-size: 22px !important;
+    font-size: 18px !important;
   }
 }

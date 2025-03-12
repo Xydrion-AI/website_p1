@@ -1,30 +1,36 @@
 import { Col, Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 const Logo = "/assets/images/Logo.png";
 
 function Footer() {
     return (
         <Container fluid id='footer'>
             <Row>
-                <div className='text-align-center'>INFORMATIONS GENERALES</div>
+                <h4 className='text-center'>INFORMATIONS GENERALES</h4>
             </Row>
             <Row>
                 <Container>
                     <Col className='text-align-left'>
-                        <div className='text-color'>Contact</div>
-                        <div className='text-color'>L'équipe</div>
-                        <div className='text-color'>Informations légales</div>
-                        <div className='text-color'>C.G.U</div>
-                        <div className='text-color'>C.G.V</div>
-                        <div className='text-color'>Modération</div>
-                        <div className='text-color'>Politique de confidentialité</div>
+                        <Row>
+                            <Link as={Link} to="/contact" className='text-color link'>Contact</Link>
+                        </Row>
+                        <Row>
+                            <Link as={Link} to="/informations#mentions" className='text-color link'>Mentions légales</Link>
+                        </Row>
+                        <Row>
+                            <Link as={Link} to="/informations#cgu" className='text-color link'>C.G.U</Link>
+                        </Row>
+                        <Row>
+                            <Link as={Link} to="/informations#confident" className='text-color link'>Politique de confidentialité</Link>
+                        </Row>
                     </Col>
                 </Container>
             </Row>
             <Row>
-                <div className='copyright'>
+                <Container className='copyright'>
                     <img src={Logo} alt="Logo du site" height={50} className='logo' />
-                    <div>Copyright © 2025 Tous droits réservés.</div>
-                </div>
+                    <p>Copyright © 2025 Tous droits réservés.</p>
+                </Container>
             </Row>
         </Container>
     );
