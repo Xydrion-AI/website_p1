@@ -24,11 +24,11 @@ function NewCarouselEvent({ items }) {
             slidesPerView: 1,
             spaceBetween: 30,
           },
-          480: {
+          640: {
             slidesPerView: 2,
             spaceBetween: 30,
           },
-          640: {
+          1025: {
             slidesPerView: 3,
             spaceBetween: 30,
           },

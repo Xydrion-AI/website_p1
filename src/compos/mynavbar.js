@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -56,11 +57,11 @@ function Banner() {
     <Navbar expand="lg" className="nav text-color">
       <Container fluid id="banniere">
         <Navbar.Brand as={Link} to="/">
-          <img src={Logo} alt="Logo du site" width={160} height={160} className='d-inline-block align-top' />{/*Notre fameux logo qui renvoie vers l'accueil quand on clique dessus */}
+          <img src={Logo} alt="Logo du site" className='logoHeader' />{/*Notre fameux logo qui renvoie vers l'accueil quand on clique dessus */}
         </Navbar.Brand>
         <Navbar.Toggle className="custom-toggle" aria-controls="navbarScroll" /> {/*Bouton hamburger pour la version mobile */}
         <Navbar.Collapse id="navbarScroll">
-          <Nav className="me-auto" style={{ maxHeight: '160px' }} navbarScroll>
+          <Nav className="me-auto" navbarScroll>
             {/*Les fonctions ci dessous permettent de reformater les objets de mes tableaux en fonction de ce que j'ai défini dans ma constante newDropdown */}
             {newDropdown.map(({ id, label, items }) => (
               <NavDropdown key={id} title={label} id="basic-nav-dropdown-item" className='custom-dropdown'>
@@ -78,10 +79,10 @@ function Banner() {
           <NavDropdown
             className='custom-dropdown-left custom-dropdown'
             title={
-              <div className='userContainer'>
-                <img src={Avatar} alt='User' width={60} height={60} className='rounded-circle item-center' style={{ marginRight: '25px', maxWidth: '120px' }} />
-                <div className='userCard'>{Pseudo}</div>
-              </div>
+              <Container className='userContainer'>
+                <img src={Avatar} alt='User' className='rounded-circle item-center userImage' />
+                <Row className='userCard'>{Pseudo}</Row>
+              </Container>
             }
             id='user-dropdown'
           >
