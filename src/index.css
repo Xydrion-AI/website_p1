@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #055d94;
+  --primary-color: #717171;
   --secondary-color: azure;
   --border-radius: 5px;
   --border-radius-large: 20px;
@@ -304,7 +304,7 @@ code {
   background-color: #717171;
   border: 2px solid var(--secondary-color);
   border-radius: 10px;
-  padding: 15px;
+  padding: 5px;
   margin: 20px !important;
   box-shadow: var(--box-shadow);
 }
@@ -332,12 +332,13 @@ code {
   margin-right: 40px;
 }
 
-.deleteButton {
-  height: 30px;
-  width: 30px;
+.deleteButton, .editButton, .likeButton  {
+  height: fit-content;
+  width: fit-content;
   background-color: #1b1a1a !important;
   border-radius: var(--border-radius-large) !important;
   border: 2px solid var(--secondary-color) !important;
+  margin: 2px;
 }
 
 .deleteButton:hover {

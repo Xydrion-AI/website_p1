@@ -12,50 +12,69 @@ function News({ user }) {
     const currentUser = user || defaultUser;
 
     const [comments, setComments] = useState([
-        { id: 1, name: "Jean", image: "/assets/images/avatar.svg", text: "Ceci est un faux commentaire", date: "14/03/2025 13:37:34" },
-        { id: 2, name: "Marie", image: "/assets/images/avatar.svg", text: "Et celui ci aussi est un faux commentaire", date: "14/03/2025 13:37:32" },
+        { id: 1, name: "Jean", image: "/assets/images/avatar.svg", text: "Ceci est un faux commentaire", date: "14/03/2025 13:37:34", likes: 0, likedByUser: false, editing: false },
+        { id: 2, name: "Marie", image: "/assets/images/avatar.svg", text: "Et celui ci aussi est un faux commentaire", date: "14/03/2025 13:37:32", likes: 0, likedByUser: false, editing: false },
     ]);
 
     const [newComment, setNewComment] = useState("");
-    const [visibleCount, setVisibleCount] = useState(5); // Nombre de commentaires visibles
+    const [visibleCount, setVisibleCount] = useState(5);
 
-    // Ajouter un commentaire
     const addComment = () => {
         if (newComment.trim() !== "") {
             const newEntry = {
-                id: Date.now(), // Un identifiant unique pour chaque commentaire
+                id: Date.now(),
                 name: currentUser.name,
                 image: currentUser.image,
                 date: new Date().toLocaleString(),
                 text: newComment,
+                likes: 0,
+                likedByUser: false,
+                editing: false,
             };
             setComments([newEntry, ...comments]);
             setNewComment("");
         }
     };
 
-    // Gestion de la touche "Entrée"
     const handleKeyPress = (e) => {
         if (e.key === "Enter") {
-            e.preventDefault(); // Empêche l'événement par défaut (soumission du formulaire)
+            e.preventDefault();
             addComment();
         }
     };
 
-    // Fonction pour afficher plus de commentaires
     const showMoreComments = () => {
         setVisibleCount(visibleCount + 5);
     };
 
-    // Fonction pour réduire le nombre de commentaires visibles
     const reduceComments = () => {
         setVisibleCount(5);
     };
 
-    // Supprimer un commentaire
     const deleteComment = (id) => {
         const filteredComments = comments.filter(comment => comment.id !== id);
         setComments(filteredComments);
+    };
+
+    const likeComment = (id) => {
+        const updatedComments = comments.map(comment =>
+            comment.id === id && !comment.likedByUser ? { ...comment, likes: comment.likes + 1, likedByUser: true } : comment
+        );
+        setComments(updatedComments);
+    };
+
+    const editComment = (id) => {
+        const updatedComments = comments.map(comment =>
+            comment.id === id ? { ...comment, editing: !comment.editing } : comment
+        );
+        setComments(updatedComments);
+    };
+
+    const updateComment = (id, text) => {
+        const updatedComments = comments.map(comment =>
+            comment.id === id ? { ...comment, text, editing: false } : comment
+        );
+        setComments(updatedComments);
     };
 
     return (
@@ -90,7 +109,6 @@ function News({ user }) {
             <Container className="comments mb-5">
                 <h3>Espace Utilisateur</h3>
 
-                {/* Carte utilisateur responsive */}
                 <Row className="align-items-center d-flex userImageCol mb-3 mx-5">
                     <Col xs={12} md={3} className="text-center mb-2 mb-md-0">
                         <Image
@@ -117,7 +135,7 @@ function News({ user }) {
                                 placeholder="Ajoutez votre commentaire..."
                                 value={newComment}
                                 onChange={(e) => setNewComment(e.target.value)}
-                                onKeyPress={handleKeyPress} // Ajout de l'écoute d'événement sur "Entrée"
+                                onKeyPress={handleKeyPress}
                             />
                         </Form.Group>
                         <Button className="custom-button-2" onClick={addComment}>
@@ -127,9 +145,8 @@ function News({ user }) {
                 </Container>
                 <h3 className="mb-3">Commentaires</h3>
 
-                {/* Affiche uniquement les commentaires visibles */}
                 <ul className="list-unstyled">
-                    {comments.slice(0, visibleCount).map((comment, index) => (
+                    {comments.slice(0, visibleCount).map((comment) => (
                         <li key={comment.id} className="mb-3">
                             <Row className="align-items-center comms">
                                 <Col className="userImageCommentCol" xs={3}>
@@ -142,28 +159,53 @@ function News({ user }) {
                                     />
                                 </Col>
                                 <Col>
-                                    <p className="mb-2 commentName">{comment.name}</p>
-                                    <p className="mb-2 commentText">{comment.text}</p>
-                                    <p className="mb-2 commentDate">{comment.date}</p>
+                                    {comment.editing ? (
+                                        <Form.Control
+                                            type="text"
+                                            defaultValue={comment.text}
+                                            onBlur={(e) => updateComment(comment.id, e.target.value)}
+                                        />
+                                    ) : (
+                                        <>
+                                            <p className="mb-2 commentName">{comment.name}</p>
+                                            <p className="mb-2 commentText">{comment.text}</p>
+                                            <p className="mb-2 commentDate">{comment.date}</p>
+                                        </>
+                                    )}
                                 </Col>
-                                {/* Bouton de suppression visible uniquement pour l'utilisateur connecté */}
-                                {comment.name === currentUser.name && (
-                                    <Col xs={2} className="text-end">
-                                        <Button
-                                            className='deleteButton'
-                                            size="sm"
-                                            onClick={() => deleteComment(comment.id)}
-                                        >
-                                            X
-                                        </Button>
-                                    </Col>
-                                )}
+                                <Col xs={2} className="text-end">
+                                    <Button
+                                        className='likeButton'
+                                        size="sm"
+                                        onClick={() => likeComment(comment.id)}
+                                        disabled={comment.likedByUser}
+                                    >
+                                        👍 {comment.likes}
+                                    </Button>
+                                    {comment.name === currentUser.name && (
+                                        <>
+                                            <Button
+                                                className='editButton'
+                                                size="sm"
+                                                onClick={() => editComment(comment.id)}
+                                            >
+                                                {comment.editing ? 'Enregistrer' : 'Modifier'}
+                                            </Button>
+                                            <Button
+                                                className='deleteButton'
+                                                size="sm"
+                                                onClick={() => deleteComment(comment.id)}
+                                            >
+                                                X
+                                            </Button>
+                                        </>
+                                    )}
+                                </Col>
                             </Row>
                         </li>
                     ))}
                 </ul>
 
-                {/* Boutons pour afficher ou réduire les commentaires */}
                 <div className="d-flex justify-content-between">
                     {visibleCount < comments.length && (
                         <Button className="custom-button-2" onClick={showMoreComments}>
@@ -181,4 +223,4 @@ function News({ user }) {
     );
 }
 
-export default News
+export default News;
