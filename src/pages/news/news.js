@@ -180,7 +180,7 @@ function News({ user }) {
                                         </>
                                     )}
                                 </Col>
-                                <Col className="buttonInteraction" xs={2} >
+                                <Col className="buttonInteraction" xs={12} md={4}>
                                     <CommentLikeButton comment={comment} likeComment={likeComment} />
                                     {comment.name === currentUser.name && (
                                         <>

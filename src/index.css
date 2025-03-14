@@ -358,7 +358,6 @@ code {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   font-size: 40px;
 }
 
@@ -379,6 +378,7 @@ code {
 
 .buttonInteraction {
   display: flex;
+  justify-content: flex-end;
 }
 
 @media (min-width: 768px) {
