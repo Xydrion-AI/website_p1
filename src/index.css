@@ -338,14 +338,45 @@ code {
   background-color: #1b1a1a !important;
   border-radius: var(--border-radius-large) !important;
   border: 2px solid var(--secondary-color) !important;
-  margin: 2px;
+  margin: 3px;
 }
 
 .deleteButton:hover {
   background-color: #ff0000 !important;
 }
 
-/* Media Queries */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #717171;
+  color: black;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 40px;
+}
+
+.arrowUp {
+  max-height: 30px;
+}
+
+.likeButton {
+  display: flex;
+  align-items: center;
+}
+
+.like {
+  width: 14px; /* Ajustez la taille selon vos besoins */
+  height: 14px;
+  margin-right: 4px; /* Espace entre l'image et le texte */
+}
+
 @media (min-width: 768px) {
   body {
     font-size: 16px !important;

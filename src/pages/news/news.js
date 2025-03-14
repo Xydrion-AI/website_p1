@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Image, Form, Button } from 'react-bootstrap';
+import CommentLikeButton from '../../compos/likebutton';
 
 function News({ user }) {
     const defaultUser = {
@@ -58,7 +59,13 @@ function News({ user }) {
 
     const likeComment = (id) => {
         const updatedComments = comments.map(comment =>
-            comment.id === id && !comment.likedByUser ? { ...comment, likes: comment.likes + 1, likedByUser: true } : comment
+            comment.id === id
+                ? {
+                    ...comment,
+                    likes: comment.likedByUser ? comment.likes - 1 : comment.likes + 1,
+                    likedByUser: !comment.likedByUser
+                  }
+                : comment
         );
         setComments(updatedComments);
     };
@@ -173,15 +180,8 @@ function News({ user }) {
                                         </>
                                     )}
                                 </Col>
-                                <Col xs={2} className="text-end">
-                                    <Button
-                                        className='likeButton'
-                                        size="sm"
-                                        onClick={() => likeComment(comment.id)}
-                                        disabled={comment.likedByUser}
-                                    >
-                                        👍 {comment.likes}
-                                    </Button>
+                                <Col xs={2} >
+                                <CommentLikeButton comment={comment} likeComment={likeComment} />
                                     {comment.name === currentUser.name && (
                                         <>
                                             <Button

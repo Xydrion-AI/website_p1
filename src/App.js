@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
+import ScrollToTopArrow from "./compos/scrolltotop";
 import Banner from './compos/mynavbar';
 import Footer from './compos/myfooter';
 import Home from './pages/home/home';
@@ -30,7 +31,9 @@ function App() {
           <Footer />
         </footer>
       </div>
+      <ScrollToTopArrow/>
     </BrowserRouter>
+    
   );
 }
 
