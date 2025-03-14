@@ -12,7 +12,7 @@ const CommentLikeButton = ({ comment, likeComment }) => {
       className='likeButton d-flex align-items-center'
       size="sm"
       onClick={() => likeComment(id)}
-      disabled={false} // Assurez-vous que le bouton n'est jamais désactivé
+      disabled={false}
     >
       <img className="like me-1" src={like} alt="Like" />
       <span>{likes}</span>

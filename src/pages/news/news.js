@@ -64,7 +64,7 @@ function News({ user }) {
                     ...comment,
                     likes: comment.likedByUser ? comment.likes - 1 : comment.likes + 1,
                     likedByUser: !comment.likedByUser
-                  }
+                }
                 : comment
         );
         setComments(updatedComments);
@@ -180,8 +180,8 @@ function News({ user }) {
                                         </>
                                     )}
                                 </Col>
-                                <Col xs={2} >
-                                <CommentLikeButton comment={comment} likeComment={likeComment} />
+                                <Col className="buttonInteraction" xs={2} >
+                                    <CommentLikeButton comment={comment} likeComment={likeComment} />
                                     {comment.name === currentUser.name && (
                                         <>
                                             <Button

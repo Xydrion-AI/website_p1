@@ -372,9 +372,13 @@ code {
 }
 
 .like {
-  width: 14px; /* Ajustez la taille selon vos besoins */
+  width: 14px;
   height: 14px;
-  margin-right: 4px; /* Espace entre l'image et le texte */
+  margin-right: 4px;
+}
+
+.buttonInteraction {
+  display: flex;
 }
 
 @media (min-width: 768px) {
