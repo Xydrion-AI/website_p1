@@ -4,6 +4,7 @@ import NewCarouselEvent from "../../compos/carouselEvents";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
 
 function Home() {
     /*Configuration de mes carousel d'images*/
@@ -59,7 +60,7 @@ function Home() {
                     <p className="text-color-2">Nous partagerons ici un contenu lié à la technologie et le développement informatique. Cliquer sur un des boutons ci-dessous pour vous connecter ou créer un compte afin de pouvoir réagir aux différents articles de la section News</p>
                 </Row>
                 <Container>
-                <Button className="custom-color mx-2 my-2 btn-sm px-3">Créer un compte</Button>
+                <Button as={Link} to="/register" className="custom-color mx-2 my-2 btn-sm px-3">Créer un compte</Button>
                 <Button className="custom-color mx-2 my-2 btn-sm px-3">Se connecter</Button>
                 </Container>
             </Container>

@@ -26,6 +26,10 @@ body {
   padding: 0;
 }
 
+.mailto {
+  color: #767676 !important;
+}
+
 h2 {
   font-size: var(--font-size-x-large) !important;
 }
@@ -110,6 +114,10 @@ code {
   border-radius: var(--border-radius-large);
 }
 
+#user-dropdown::after {
+  color: azure;
+}
+
 .userContainer {
   display: flex;
   align-items: center;
@@ -185,6 +193,11 @@ code {
   padding-bottom: 0px;
   justify-content: center;
   align-items: center;
+}
+
+.register {
+  background-color: #000000;
+  margin: 50px
 }
 
 .date {

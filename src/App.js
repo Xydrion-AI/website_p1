@@ -7,6 +7,7 @@ import Home from './pages/home/home';
 import News from './pages/news/news';
 import Contact from "./pages/contactUs/contactus";
 import Informations from "./pages/informations/informations";
+import Register from "./pages/register/register";
 
 /* Je ne sais pas où je peux en parler donc je vais le faire ici car il y a peu de chose.
   La toute première chose que j'ai fais pour ce site est l'architecture des dossiers et fichiers, je me suis uniquement basé sur les notes que j'ai pris durant les cours.
@@ -25,6 +26,7 @@ function App() {
             <Route path="/news" element={<News />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/informations" element={<Informations />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </main>
         <footer>
