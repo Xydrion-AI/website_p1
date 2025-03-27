@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 
 //Encore du formulaire, rien de compliqué
 
-function Forgot() {
+function CheckEmail() {
   const [verificationCode, setVerificationCode] = useState('');
 
   // Gestion de la soumission du formulaire
@@ -27,7 +27,7 @@ function Forgot() {
           <Col md={12}>
             <Form onSubmit={handleSubmit}>
               <Container className="mb-3 text-color-2">
-                <label for="verificationCode" className="form-label">Renseignez le code reçu par mail</label>
+                <label for="verificationCode" className="form-label">Indiquer l'adresse utiliser l'autre de l'inscription</label>
                 <input
                   type="text"
                   className="form-control textBrecupmdp"
@@ -36,7 +36,7 @@ function Forgot() {
                   value={verificationCode}
                   onChange={(e) => setVerificationCode(e.target.value)}
                 />
-                <Button as={Link} to="/passchange" type="submit" className="custom-button-2 w-50 my-3">Vérifier</Button>
+                <Button as={Link} to="/forgot" type="submit" className="custom-button-2 w-50 my-3">Vérifier</Button>
               </Container>
             </Form>
           </Col>
@@ -46,5 +46,4 @@ function Forgot() {
   );
 }
 
-export default Forgot;
-
+export default CheckEmail;

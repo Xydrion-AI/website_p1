@@ -27,7 +27,7 @@ function SignIn() {
       </Container>
       <Container>
         <Row>
-          <Col md={6} style={{ margin: '2% auto' }}>
+          <Col md={6} >
             <form onSubmit={handleSubmit}>
               <Container className="my-3 form-check connexion text-color-2">
                 <label for="InputEmail1" className="form-label"></label>
@@ -38,7 +38,6 @@ function SignIn() {
                   placeholder="Pseudo"
                   aria-describedby="emailHelp"
                   value={email}
-                  style={{ margin: '0 auto' }}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </Container>
@@ -50,12 +49,11 @@ function SignIn() {
                   placeholder="🔒︎ Mot de passe"
                   id="InputPassword1"
                   value={password}
-                  style={{ margin: '0 auto' }}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </Container>
               <Container className="mb-3 form-check text-color-2">
-                <Button as={Link} to="/forgot" type="button" className="forgotPass" >Mot de passe oublié?</Button>
+                <Button as={Link} to="/checkemail" type="button" className="forgotPass" >Mot de passe oublié?</Button>
               </Container>
               <Container className="buttonRow">
                 <Row className="forgotForm">
@@ -66,7 +64,7 @@ function SignIn() {
               </Container>
             </form>
           </Col>
-          <Col md={6} className="text-color-2" style={{ margin: '3% auto' }}>
+          <Col md={6} className="text-color-2">
             <p className="inscrit">Si vous n'avez pas encore de compte, cliquez sur le bouton ci-dessous, c'est gratuit.</p>
             <Button as={Link} to="/register" type="button" className="btn custom-button-2 text-color-2">Inscription</Button>
           </Col>

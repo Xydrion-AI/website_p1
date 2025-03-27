@@ -13,7 +13,10 @@ import SignIn from "./pages/signin/signin";
 import Forgot from "./pages/forgot/forgot";
 import ArticlePage from "./compos/article.js";
 import NotFound from "./pages/404/404.js";
-
+import CheckEmail from "./pages/checkEmail/checkEmail.js";
+import PassChange from "./pages/passChange/passChange.js";
+import Profile from "./pages/profile/profile.js";
+import User from "./pages/user/user.js";
 
 /* Je ne sais pas où je peux en parler donc je vais le faire ici car il y a peu de chose.
   La toute première chose que j'ai fais pour ce site est l'architecture des dossiers et fichiers, je me suis uniquement basé sur les notes que j'ai pris durant les cours.
@@ -35,8 +38,12 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/signin" element={<SignIn/>} />
             <Route path="/forgot" element={<Forgot/>} />
-            <Route path="/article/:id" element={<ArticlePage />} /> {/* Route dynamique pour afficher l'article */}
+            <Route path="/checkemail" element={<CheckEmail/>} />
+            <Route path="/passchange" element={<PassChange/>} />
+            <Route path="/article/:id" element={<ArticlePage />} /> 
             <Route path="/notfound" element={<NotFound />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/user" element={<User />} />
           </Routes>
         </main>
         <footer>

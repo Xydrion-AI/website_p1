@@ -440,12 +440,14 @@ code {
   width: 200px;
 }
 
-.textB {
-  width: 400px;
-}
-
 .forgotForm {
   justify-content: center;
+}
+
+.user {
+  max-width: 400px !important;
+  max-height: auto;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
