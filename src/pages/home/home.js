@@ -61,7 +61,7 @@ function Home() {
                 </Row>
                 <Container>
                 <Button as={Link} to="/register" className="custom-color mx-2 my-2 btn-sm px-3">Créer un compte</Button>
-                <Button className="custom-color mx-2 my-2 btn-sm px-3">Se connecter</Button>
+                <Button as={Link} to="/signin" className="custom-color mx-2 my-2 btn-sm px-3">Se connecter</Button>
                 </Container>
             </Container>
             <NewCarousel items={carouselItems1} />

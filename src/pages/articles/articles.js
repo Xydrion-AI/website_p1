@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Image, Form, Button } from 'react-bootstrap';
 import CommentLikeButton from '../../compos/likebutton';
 
-function News({ user }) {
+function Article({ user }) {
     const defaultUser = {
         name: "Anonyme",
         image: "/assets/images/avatar.svg",
@@ -223,4 +223,4 @@ function News({ user }) {
     );
 }
 
-export default News;
+export default Article;

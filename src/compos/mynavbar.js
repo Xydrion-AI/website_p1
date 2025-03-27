@@ -13,13 +13,7 @@ ce que l'on a appris en cours notamment avec les tableaux d'objets dans lesquels
  1- Je trouve le code bien plus lisible de cette manière
  2- Il m'est plus facile de modifier mes données et d'envisager d'améliorer le code par la suite en ajoutant facilement de nouveaux éléments
  3- Je pratique ce qui a été appris en cours concernant les navbar
-
-Rentrons dans le vif du sujet, on défini nos variables en premier dans notre fonction. Ici, la portée nécessaire est propre à notre fonction.
-Ensuite, je défini mes tableaux d'objets dans lesquels on retrouvera :
-- l'identification de la page
-- le "titre" du menu dropdown, 
-- Son tableau d'items (représentant les sections du menu avec leur titre et la redirection via HashLink)
-Plus tard, je déplacerais peut-être le contact ailleurs car ce n'est pas une section mais bien une autre page mais tout n'est pas encore parfaitement défini et tout les redirections sont fonctionnelles*/
+*/
 
 function Banner() {
   const Logo = "/assets/images/Logo.png";

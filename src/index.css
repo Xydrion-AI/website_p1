@@ -152,6 +152,12 @@ code {
   color: var(--secondary-color) !important;
 }
 
+.text-color-4 {
+  text-align: center;
+  color: red;
+  border-style: dashed none;
+}
+
 .text-color:hover {
   color: var(--primary-color) !important;
 }
@@ -187,6 +193,11 @@ code {
   height: auto;
 }
 
+.forgotPass {
+  background: none !important;
+  border: none !important;
+}
+
 .contactContainer {
   margin-top: 120px;
   margin-bottom: 160px;
@@ -195,8 +206,10 @@ code {
   align-items: center;
 }
 
-.register {
-  background-color: #000000;
+.register,
+.forgot {
+  display: flex;
+  justify-content: center;
   margin: 50px
 }
 
@@ -392,6 +405,46 @@ code {
 .buttonInteraction {
   display: flex;
   justify-content: flex-end;
+}
+
+.forgotPassword{
+  background-color: #ffffff00;
+}
+
+.buttonC {
+  background-color: #055d94;
+  border-color: white;
+}
+
+.buttonCrecupmdp {
+  background-color: #055d94;
+  border-color: white;
+  width: 300px;
+}
+
+.buttonCchgmdp {
+  background-color: #055d94;
+  border-color: white;
+  width: 300px;
+}
+.buttonCverifmail {
+  background-color: #055d94;
+  border-color: white;
+  width: 300px;
+}
+
+.buttonCconnexion {
+  background-color: #055d94;
+  border-color: white;
+  width: 200px;
+}
+
+.textB {
+  width: 400px;
+}
+
+.forgotForm {
+  justify-content: center;
 }
 
 @media (min-width: 768px) {

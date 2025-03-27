@@ -1,14 +1,13 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay, Zoom } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/zoom';
 import { Container, Row } from 'react-bootstrap';
 
 
-function NewCarouselEvent({ items }) {
+function NewCarouselNews({ items }) {
   return (
     <Container>
       <Swiper
@@ -34,10 +33,10 @@ function NewCarouselEvent({ items }) {
           },
         }}
       >
-        {items.map((item, index) => (
+         {items.map((item, index) => (
           <SwiperSlide key={index} className="text-color-3">
-            <Container className='mx-auto text-center my-5'>
-              <img className="carouselItem" src={item.image} alt={item.title || "Impossible d'afficher l'image"} />
+            <Container className="mx-auto text-center">
+              <img className="carouselItem" src={item.image} alt={item.title || "Image non disponible"} />
               <Row className="d-flex justify-content-center">
                 <h3 className="custom-title">{item.articleTitle}</h3>
                 <p className='date'>{item.date}</p>
@@ -45,10 +44,11 @@ function NewCarouselEvent({ items }) {
               </Row>
             </Container>
           </SwiperSlide>
-        ))}
-      </Swiper>
-    </Container>
+        ))
+        }
+      </Swiper >
+    </Container >
   );
 }
 
-export default NewCarouselEvent;
+export default NewCarouselNews;
