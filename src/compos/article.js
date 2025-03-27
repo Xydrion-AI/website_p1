@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { Container, Row, Col, Image, Form, Button } from 'react-bootstrap';
-import CommentLikeButton from '../../compos/likebutton'; 
+import CommentLikeButton from './likebutton';
 
-// English: Placeholder comment if I don’t finish on time; the article component is better documented
-// French: Commentaire d'espace réservé si je ne finis pas à temps ; le composant article est mieux commenté
-// I will leave this page for now because the site is working, just missing the display of articles when clicking on the links
-function Article({ user }) {
-    // Default user information if no user is passed in
-    // Utilisateur par défaut si aucun utilisateur n'est passé
+function ArticlePage() {
+    const [article, setArticle] = useState(null);
+    const [comments, setComments] = useState([]);
+    const { id } = useParams();
+    const [newComment, setNewComment] = useState("");
+    const [visibleCount, setVisibleCount] = useState(5);
+
     const defaultUser = {
         name: "Anonyme",
         image: "/assets/images/avatar.svg",
@@ -15,27 +17,20 @@ function Article({ user }) {
         role: "Visiteur"
     };
 
-    // Current user either passed in as a prop or using default user
-    // Utilisateur actuel soit passé en tant que prop, soit utilisant l'utilisateur par défaut
-    const currentUser = user || defaultUser;
+    const currentUser = defaultUser;
 
-    // State for storing the list of comments
-    // État pour stocker la liste des commentaires
-    const [comments, setComments] = useState([
-        { id: 1, name: "Jean", image: "/assets/images/avatar.svg", text: "Ceci est un faux commentaire", date: "14/03/2025 13:37:34", likes: 0, likedByUser: false, editing: false },
-        { id: 2, name: "Marie", image: "/assets/images/avatar.svg", text: "Et celui ci aussi est un faux commentaire", date: "14/03/2025 13:37:32", likes: 0, likedByUser: false, editing: false },
-    ]);
+    // Fonction pour charger les articles à partir du fichier JSON
+    useEffect(() => {
+        fetch('/src/data/news.json')
+            .then((response) => response.json())
+            .then((data) => {
+                const articleData = data.articles.find(article => article.id === parseInt(id));
+                setArticle(articleData);
+                setComments(articleData.comments || []);
+            })
+            .catch((error) => console.error('Erreur de chargement des articles:', error));
+    }, [id]);
 
-    // State for new comment text input
-    // État pour l'entrée de texte du nouveau commentaire
-    const [newComment, setNewComment] = useState("");
-
-    // State for controlling the number of visible comments
-    // État pour contrôler le nombre de commentaires visibles
-    const [visibleCount, setVisibleCount] = useState(5);
-
-    // Function to add a new comment
-    // Fonction pour ajouter un nouveau commentaire
     const addComment = () => {
         if (newComment.trim() !== "") {
             const newEntry = {
@@ -53,8 +48,6 @@ function Article({ user }) {
         }
     };
 
-    // Function to handle pressing Enter key for adding a comment
-    // Fonction pour gérer la pression de la touche "Entrée" pour ajouter un commentaire
     const handleKeyPress = (e) => {
         if (e.key === "Enter") {
             e.preventDefault();
@@ -62,27 +55,19 @@ function Article({ user }) {
         }
     };
 
-    // Function to show more comments
-    // Fonction pour afficher plus de commentaires
     const showMoreComments = () => {
         setVisibleCount(visibleCount + 5);
     };
 
-    // Function to reduce the visible comments to the initial 5
-    // Fonction pour réduire les commentaires visibles à 5
     const reduceComments = () => {
         setVisibleCount(5);
     };
 
-    // Function to delete a comment
-    // Fonction pour supprimer un commentaire
     const deleteComment = (id) => {
         const filteredComments = comments.filter(comment => comment.id !== id);
         setComments(filteredComments);
     };
 
-    // Function to handle liking/unliking a comment
-    // Fonction pour gérer l'ajout/retirement d'un "like" sur un commentaire
     const likeComment = (id) => {
         const updatedComments = comments.map(comment =>
             comment.id === id
@@ -96,8 +81,6 @@ function Article({ user }) {
         setComments(updatedComments);
     };
 
-    // Function to toggle comment editing mode
-    // Fonction pour basculer en mode édition du commentaire
     const editComment = (id) => {
         const updatedComments = comments.map(comment =>
             comment.id === id ? { ...comment, editing: !comment.editing } : comment
@@ -105,8 +88,6 @@ function Article({ user }) {
         setComments(updatedComments);
     };
 
-    // Function to update a comment's text after editing
-    // Fonction pour mettre à jour le texte d'un commentaire après modification
     const updateComment = (id, text) => {
         const updatedComments = comments.map(comment =>
             comment.id === id ? { ...comment, text, editing: false } : comment
@@ -114,31 +95,28 @@ function Article({ user }) {
         setComments(updatedComments);
     };
 
+    if (!article) {
+        return <div className='text-color-2'>Chargement...</div>;
+    }
+
     return (
         <Container className="newsContainer text-color-2 my-4">
             <header className="text-center mb-4">
                 <Image
                     className="imageArticle my-4"
-                    src="/assets/images/img1.jpg"
-                    alt="Image de l'article" // Image of the article
+                    src={article.imageURI}
+                    alt="Image de l'article"
                     fluid
                     rounded
                 />
-                <h2 className="newsContainer mt-4">Article sur des lunettes posées sur un ordinateur portable</h2>
+                <h2 className="newsContainer mt-4">{article.title}</h2>
             </header>
 
             <section className="content mb-4">
                 <Row>
                     <Col>
-                        <article>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est rem impedit
-                            temporibus corrupti facere nostrum culpa officia libero, animi, nobis accusamus ullam pariatur
-                            inventore minima quod ratione nihil officiis aut.
-                            Aliquam officia delectus deleniti accusamus reprehenderit eum ullam, necessitatibus saepe voluptas
-                            inventore minima similique hic esse at maxime soluta corporis, qui sit! Ad nihil eius exercitationem
-                            corporis ab eligendi blanditiis.
-                            Cum a, esse animi harum deserunt ullam laborum quaerat reiciendis odio ratione sed. Ipsam quia in,
-                            quam quis, id illum eaque sint numquam itaque, atque voluptatem eos cupiditate autem soluta?</article>
-                        <p><strong>Publié le 14/03/2025 par Roberto Delavega</strong></p>
+                        <article>{article.content}</article>
+                        <p><strong>Publié le {article.date} par {article.author}</strong></p>
                     </Col>
                 </Row>
             </section>
@@ -151,7 +129,7 @@ function Article({ user }) {
                         <Image
                             className="userImageComment"
                             src={currentUser.image}
-                            alt="Image de l'utilisateur" // User's image
+                            alt="Image de l'utilisateur"
                             roundedCircle
                             fluid
                         />
@@ -169,7 +147,7 @@ function Article({ user }) {
                             <Form.Control
                                 className="commentInput mb-3"
                                 type="text"
-                                placeholder="Ajoutez votre commentaire..." // Placeholder text
+                                placeholder="Ajoutez votre commentaire..."
                                 value={newComment}
                                 onChange={(e) => setNewComment(e.target.value)}
                                 onKeyPress={handleKeyPress}
@@ -180,6 +158,7 @@ function Article({ user }) {
                         </Button>
                     </Form>
                 </Container>
+
                 <h3 className="mb-3">Commentaires</h3>
 
                 <ul className="list-unstyled">
@@ -190,7 +169,7 @@ function Article({ user }) {
                                     <Image
                                         className="userImageComment"
                                         src={comment.image}
-                                        alt={`Avatar de ${comment.name}`} // Avatar of the commenter
+                                        alt={`Avatar de ${comment.name}`}
                                         roundedCircle
                                         fluid
                                     />
@@ -219,14 +198,14 @@ function Article({ user }) {
                                                 size="sm"
                                                 onClick={() => editComment(comment.id)}
                                             >
-                                                {comment.editing ? 'Enregistrer' : 'Modifier'} {/* Save or Edit */}
+                                                {comment.editing ? 'Enregistrer' : 'Modifier'}
                                             </Button>
                                             <Button
                                                 className='deleteButton'
                                                 size="sm"
                                                 onClick={() => deleteComment(comment.id)}
                                             >
-                                                X {/* Delete button */}
+                                                X
                                             </Button>
                                         </>
                                     )}
@@ -239,12 +218,12 @@ function Article({ user }) {
                 <Container className="d-flex justify-content-between">
                     {visibleCount < comments.length && (
                         <Button className="custom-button-2" onClick={showMoreComments}>
-                            Afficher plus {/* Show more */}
+                            Afficher plus
                         </Button>
                     )}
                     {visibleCount > 5 && (
                         <Button variant="secondary" onClick={reduceComments}>
-                            Réduire {/* Reduce */}
+                            Réduire
                         </Button>
                     )}
                 </Container>
@@ -253,4 +232,4 @@ function Article({ user }) {
     );
 }
 
-export default Article;
+export default ArticlePage;

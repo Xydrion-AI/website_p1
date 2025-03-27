@@ -1,15 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import './App.css';
 import ScrollToTopArrow from "./compos/scrolltotop";
 import Banner from './compos/mynavbar';
 import Footer from './compos/myfooter';
 import Home from './pages/home/home';
-import News from './pages/news/news';
+import News from './pages/news/news.js';
 import Contact from "./pages/contactUs/contactus";
 import Informations from "./pages/informations/informations";
 import Register from "./pages/register/register";
 import SignIn from "./pages/signin/signin";
 import Forgot from "./pages/forgot/forgot";
+import ArticlePage from "./compos/article.js";
+
 
 /* Je ne sais pas où je peux en parler donc je vais le faire ici car il y a peu de chose.
   La toute première chose que j'ai fais pour ce site est l'architecture des dossiers et fichiers, je me suis uniquement basé sur les notes que j'ai pris durant les cours.
@@ -31,6 +34,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/signin" element={<SignIn/>} />
             <Route path="/forgot" element={<Forgot/>} />
+            <Route path="/news/:id" element={<ArticlePage />} /> {/* Route dynamique pour afficher l'article */}
           </Routes>
         </main>
         <footer>

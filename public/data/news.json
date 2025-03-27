@@ -1,0 +1,247 @@
+{
+    "articles": [
+        {
+            "id": 1,
+            "title": "Hackathon",
+            "category": "lastNews",
+            "description": "Description de l'évènement : 18 élèves de tout âge qui courrent 10 kilomètres avec un pc dans les mains et en tapant des lignes de codes pour hacker leur formateur",
+            "content": "Texte complet de l'article",
+            "author": "Nom de l'auteur",
+            "date": "2025-03-27",
+            "imageURI": "/assets/images/img4.jpg",
+            "link": "/news/hackaton",
+            "comments": [
+                {
+                    "id": 1,
+                    "name": "Alice",
+                    "image": "/assets/images/user1.jpg",
+                    "date": "2025-03-27 10:30",
+                    "text": "C'était un super événement, très fun et stimulant !",
+                    "likes": 2,
+                    "likedByUser": false,
+                    "editing": false
+                },
+                {
+                    "id": 2,
+                    "name": "Bob",
+                    "image": "/assets/images/user2.jpg",
+                    "date": "2025-03-27 11:15",
+                    "text": "J'ai adoré la compétition, mais c'était épuisant !",
+                    "likes": 1,
+                    "likedByUser": false,
+                    "editing": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Restaurant",
+            "category": "lastNews",
+            "description": "P'tite bouffe entre collègues développeur web et web mobile dans la campagne Mayennaise",
+            "content": "Texte complet de l'article",
+            "author": "Nom de l'auteur",
+            "date": "2025-03-27",
+            "imageURI": "/assets/images/img4.jpg",
+            "link": "/news/restaurant",
+            "comments": []
+        },
+        {
+            "id": 3,
+            "title": "Torture de groupe",
+            "category": "lastNews",
+            "description": "Un groupe d'étudiant en développement web se fait torturer par un professeur sadique",
+            "content": "Texte complet de l'article",
+            "author": "Nom de l'auteur",
+            "date": "2025-03-27",
+            "imageURI": "/assets/images/img4.jpg",
+            "link": "/news/teamtorture",
+            "comments": []
+        },
+        {
+            "id": 4,
+            "title": "Opération café",
+            "category": "lastNews",
+            "description": "Au programme brainstorming afin d'élaborer une stratégie pour de préserver les droits d'accès à la cafetière des étudiants Viaformation",
+            "content": "Texte complet de l'article",
+            "author": "Nom de l'auteur",
+            "date": "2025-03-27",
+            "imageURI": "/assets/images/img4.jpg",
+            "link": "/news/coffeebreak",
+            "comments": []
+        },
+        {
+            "id": 5,
+            "title": "Plus d'inspiration",
+            "category": "lastNews",
+            "description": "J'ai liquidé mon stock de bêtises pour aujourd'hui, ça reviendra sans aucun doute !",
+            "content": "Texte complet de l'article",
+            "author": "Nom de l'auteur",
+            "date": "2025-03-27",
+            "imageURI": "/assets/images/img4.jpg",
+            "link": "/news/inspiration",
+            "comments": []
+        },
+        {
+            "id": 6,
+            "title": "Hackathon",
+            "category": "informatique",
+            "description": "Description de l'évènement : 18 élèves de tout âge qui courrent 10 kilomètres avec un pc dans les mains et en tapant des lignes de codes pour hacker leur formateur",
+            "content": "Texte complet de l'article",
+            "author": "Nom de l'auteur",
+            "date": "2025-03-27",
+            "imageURI": "/assets/images/img3.jpg",
+            "link": "/news/hackaton",
+            "comments": [
+                {
+                    "id": 1,
+                    "name": "Alice",
+                    "image": "/assets/images/user1.jpg",
+                    "date": "2025-03-27 10:30",
+                    "text": "C'était un super événement, très fun et stimulant !",
+                    "likes": 2,
+                    "likedByUser": false,
+                    "editing": false
+                },
+                {
+                    "id": 2,
+                    "name": "Bob",
+                    "image": "/assets/images/user2.jpg",
+                    "date": "2025-03-27 11:15",
+                    "text": "J'ai adoré la compétition, mais c'était épuisant !",
+                    "likes": 1,
+                    "likedByUser": false,
+                    "editing": false
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "title": "Restaurant",
+            "category": "informatique",
+            "description": "P'tite bouffe entre collègues développeur web et web mobile dans la campagne Mayennaise",
+            "content": "Texte complet de l'article",
+            "author": "Nom de l'auteur",
+            "date": "2025-03-27",
+            "imageURI": "/assets/images/img3.jpg",
+            "link": "/news/restaurant",
+            "comments": []
+        },
+        {
+            "id": 8,
+            "title": "Torture de groupe",
+            "category": "informatique",
+            "description": "Un groupe d'étudiant en développement web se fait torturer par un professeur sadique",
+            "content": "Texte complet de l'article",
+            "author": "Nom de l'auteur",
+            "date": "2025-03-27",
+            "imageURI": "/assets/images/img3.jpg",
+            "link": "/news/teamtorture",
+            "comments": []
+        },
+        {
+            "id": 9,
+            "title": "Opération café",
+            "category": "informatique",
+            "description": "Au programme brainstorming afin d'élaborer une stratégie pour de préserver les droits d'accès à la cafetière des étudiants Viaformation",
+            "content": "Texte complet de l'article",
+            "author": "Nom de l'auteur",
+            "date": "2025-03-27",
+            "imageURI": "/assets/images/img3.jpg",
+            "link": "/news/coffeebreak",
+            "comments": []
+        },
+        {
+            "id": 10,
+            "title": "Plus d'inspiration",
+            "category": "informatique",
+            "description": "J'ai liquidé mon stock de bêtises pour aujourd'hui, ça reviendra sans aucun doute !",
+            "content": "Texte complet de l'article",
+            "author": "Nom de l'auteur",
+            "date": "2025-03-27",
+            "imageURI": "/assets/images/img3.jpg",
+            "link": "/news/inspiration",
+            "comments": []
+        },
+        {
+            "id": 11,
+            "title": "Hackathon",
+            "category": "informatique",
+            "description": "Description de l'évènement : 18 élèves de tout âge qui courrent 10 kilomètres avec un pc dans les mains et en tapant des lignes de codes pour hacker leur formateur",
+            "content": "Texte complet de l'article",
+            "author": "Nom de l'auteur",
+            "date": "2025-03-27",
+            "imageURI": "/assets/images/img3.jpg",
+            "link": "/news/hackaton",
+            "comments": [
+                {
+                    "id": 1,
+                    "name": "Alice",
+                    "image": "/assets/images/user1.jpg",
+                    "date": "2025-03-27 10:30",
+                    "text": "C'était un super événement, très fun et stimulant !",
+                    "likes": 2,
+                    "likedByUser": false,
+                    "editing": false
+                },
+                {
+                    "id": 2,
+                    "name": "Bob",
+                    "image": "/assets/images/user2.jpg",
+                    "date": "2025-03-27 11:15",
+                    "text": "J'ai adoré la compétition, mais c'était épuisant !",
+                    "likes": 1,
+                    "likedByUser": false,
+                    "editing": false
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "title": "Restaurant",
+            "category": "technologies",
+            "description": "P'tite bouffe entre collègues développeur web et web mobile dans la campagne Mayennaise",
+            "content": "Texte complet de l'article",
+            "author": "Nom de l'auteur",
+            "date": "2025-03-27",
+            "imageURI": "/assets/images/img5.jpg",
+            "link": "/news/restaurant",
+            "comments": []
+        },
+        {
+            "id": 13,
+            "title": "Torture de groupe",
+            "category": "technologies",
+            "description": "Un groupe d'étudiant en développement web se fait torturer par un professeur sadique",
+            "content": "Texte complet de l'article",
+            "author": "Nom de l'auteur",
+            "date": "2025-03-27",
+            "imageURI": "/assets/images/img5.jpg",
+            "link": "/news/teamtorture",
+            "comments": []
+        },
+        {
+            "id": 14,
+            "title": "Opération café",
+            "category": "technologies",
+            "description": "Au programme brainstorming afin d'élaborer une stratégie pour de préserver les droits d'accès à la cafetière des étudiants Viaformation",
+            "content": "Texte complet de l'article",
+            "author": "Nom de l'auteur",
+            "date": "2025-03-27",
+            "imageURI": "/assets/images/img5.jpg",
+            "link": "/news/coffeebreak",
+            "comments": []
+        },
+        {
+            "id": 15,
+            "title": "Plus d'inspiration",
+            "category": "technologies",
+            "description": "J'ai liquidé mon stock de bêtises pour aujourd'hui, ça reviendra sans aucun doute !",
+            "content": "Texte complet de l'article",
+            "author": "Nom de l'auteur",
+            "date": "2025-03-27",
+            "imageURI": "/assets/images/img5.jpg",
+            "link": "/news/inspiration",
+            "comments": []
+        }
+    ]
+}

@@ -150,6 +150,7 @@ code {
 .text-color-2,
 .text-color-3 {
   color: var(--secondary-color) !important;
+  text-decoration: none !important;
 }
 
 .text-color-4 {
