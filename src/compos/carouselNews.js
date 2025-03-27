@@ -8,7 +8,7 @@ import { Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
  //J'essaie de dynamiser la génération d'article via une database
- // Visiblement j'ai réussi, cette version ne sera plus utilisée
+ // Visiblement j'ai réussi, cette version ne sera plus utilisée, je la laisse en historique bien qu'en situation réelle, bien evidemment, elle aurait sautée
 function NewCarouselNews({ items }) {
   return (
     <Container>

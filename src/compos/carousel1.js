@@ -7,7 +7,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/zoom';
 import { Container } from 'react-bootstrap';
 
-
+// Carousel pour mes images, rien de bien compliqué à comprendre, je ne vais pas épiloguer sur les composants qu'on trouve partout sur internet. 
+// Il sera évident que j'ai compris mon code avec les modifications que j'aurais apporté
 function NewCarousel({ items }) {
   return (
     <Container>

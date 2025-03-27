@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
 import InputGroup from 'react-bootstrap/InputGroup';
 
+
+//Page de contact, formulaire tout ce qu'il y a de plus classique et qui existe en 10000versions à copier/coller sur internet....
 function Contact() {
     return (
         <>

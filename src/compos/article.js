@@ -3,13 +3,19 @@ import { useParams } from 'react-router-dom';
 import { Container, Row, Col, Image, Form, Button } from 'react-bootstrap';
 import CommentLikeButton from './likebutton';
 
+// Sans doute une des parties les plus complexes à faire, je me suis evidemment aider de l'IA mais elle n'était utile qu'à 30%, 40% MAX car difficile 
+// L'IA génère énooooooormément d'erreurs et on tourne en rond pour lui faire les résoudre... Toutes les solutions finissent pas se trouver mais sans elle ...
+// Par contre c'est pratique pour commenter ce qu'on avait pas encore commenté...
+
 function ArticlePage() {
+    // Déclaration des états locaux pour l'article, les commentaires, et la gestion du nouveau commentaire
     const [article, setArticle] = useState(null);
     const [comments, setComments] = useState([]);
-    const { id } = useParams();
     const [newComment, setNewComment] = useState("");
     const [visibleCount, setVisibleCount] = useState(5);
+    const { id } = useParams();
 
+    // Utilisateur par défaut avec des informations fictives
     const defaultUser = {
         name: "Anonyme",
         image: "/assets/images/avatar.svg",
@@ -19,18 +25,28 @@ function ArticlePage() {
 
     const currentUser = defaultUser;
 
-    // Fonction pour charger les articles à partir du fichier JSON
+    // Fonction pour charger l'article et ses commentaires à partir d'un fichier JSON
     useEffect(() => {
-        fetch('/src/data/news.json')
-            .then((response) => response.json())
-            .then((data) => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('/data/news.json');
+                const data = await response.json();
                 const articleData = data.articles.find(article => article.id === parseInt(id));
-                setArticle(articleData);
-                setComments(articleData.comments || []);
-            })
-            .catch((error) => console.error('Erreur de chargement des articles:', error));
+                if (articleData) {
+                    setArticle(articleData);
+                    setComments(articleData.comments || []);
+                } else {
+                    console.error("Article introuvable");
+                }
+            } catch (error) {
+                console.error('Erreur de chargement des articles:', error);
+            }
+        };
+
+        fetchData();
     }, [id]);
 
+    // Fonction pour ajouter un nouveau commentaire
     const addComment = () => {
         if (newComment.trim() !== "") {
             const newEntry = {
@@ -43,31 +59,36 @@ function ArticlePage() {
                 likedByUser: false,
                 editing: false,
             };
-            setComments([newEntry, ...comments]);
-            setNewComment("");
+            setComments([newEntry, ...comments]); // Ajoute le nouveau commentaire en tête de liste
+            setNewComment(""); // Réinitialise le champ de texte
         }
     };
 
+    // Fonction pour gérer l'appui sur la touche "Enter" pour envoyer le commentaire
     const handleKeyPress = (e) => {
         if (e.key === "Enter") {
-            e.preventDefault();
+            e.preventDefault(); // Empêche le comportement par défaut
             addComment();
         }
     };
 
+    // Fonction pour afficher plus de commentaires
     const showMoreComments = () => {
         setVisibleCount(visibleCount + 5);
     };
 
+    // Fonction pour réduire le nombre de commentaires visibles
     const reduceComments = () => {
         setVisibleCount(5);
     };
 
+    // Fonction pour supprimer un commentaire
     const deleteComment = (id) => {
         const filteredComments = comments.filter(comment => comment.id !== id);
         setComments(filteredComments);
     };
 
+    // Fonction pour aimer ou ne pas aimer un commentaire
     const likeComment = (id) => {
         const updatedComments = comments.map(comment =>
             comment.id === id
@@ -81,6 +102,7 @@ function ArticlePage() {
         setComments(updatedComments);
     };
 
+    // Fonction pour modifier un commentaire (passage en mode édition)
     const editComment = (id) => {
         const updatedComments = comments.map(comment =>
             comment.id === id ? { ...comment, editing: !comment.editing } : comment
@@ -88,6 +110,7 @@ function ArticlePage() {
         setComments(updatedComments);
     };
 
+    // Fonction pour mettre à jour le texte du commentaire après modification
     const updateComment = (id, text) => {
         const updatedComments = comments.map(comment =>
             comment.id === id ? { ...comment, text, editing: false } : comment
@@ -95,13 +118,15 @@ function ArticlePage() {
         setComments(updatedComments);
     };
 
+    // Si l'article n'est pas encore chargé, afficher un message de chargement ou d'erreur
     if (!article) {
-        return <div className='text-color-2'>Chargement...</div>;
+        return <div className='text-color-2'>Chargement en cours... ou article non trouvé.</div>;
     }
 
     return (
         <Container className="newsContainer text-color-2 my-4">
             <header className="text-center mb-4">
+                {/* Affichage de l'image et du titre de l'article */}
                 <Image
                     className="imageArticle my-4"
                     src={article.imageURI}
@@ -115,6 +140,7 @@ function ArticlePage() {
             <section className="content mb-4">
                 <Row>
                     <Col>
+                        {/* Affichage du contenu de l'article */}
                         <article>{article.content}</article>
                         <p><strong>Publié le {article.date} par {article.author}</strong></p>
                     </Col>
@@ -124,6 +150,7 @@ function ArticlePage() {
             <Container className="comments mb-5">
                 <h3>Espace Utilisateur</h3>
 
+                {/* Affichage des informations de l'utilisateur */}
                 <Row className="align-items-center d-flex userImageCol mb-3 mx-5">
                     <Col xs={12} md={3} className="text-center mb-2 mb-md-0">
                         <Image
@@ -141,6 +168,7 @@ function ArticlePage() {
                     </Col>
                 </Row>
 
+                {/* Formulaire pour ajouter un nouveau commentaire */}
                 <Container>
                     <Form className="mb-3">
                         <Form.Group controlId="newComment">
@@ -162,6 +190,7 @@ function ArticlePage() {
                 <h3 className="mb-3">Commentaires</h3>
 
                 <ul className="list-unstyled">
+                    {/* Affichage des commentaires */}
                     {comments.slice(0, visibleCount).map((comment) => (
                         <li key={comment.id} className="mb-3">
                             <Row className="align-items-center comms">
@@ -175,6 +204,7 @@ function ArticlePage() {
                                     />
                                 </Col>
                                 <Col>
+                                    {/* Affichage du commentaire ou du formulaire d'édition */}
                                     {comment.editing ? (
                                         <Form.Control
                                             type="text"
@@ -190,6 +220,7 @@ function ArticlePage() {
                                     )}
                                 </Col>
                                 <Col className="buttonInteraction" xs={12} md={4}>
+                                    {/* Boutons pour aimer, modifier, supprimer un commentaire */}
                                     <CommentLikeButton comment={comment} likeComment={likeComment} />
                                     {comment.name === currentUser.name && (
                                         <>
@@ -215,6 +246,7 @@ function ArticlePage() {
                     ))}
                 </ul>
 
+                {/* Affichage des boutons pour charger plus ou moins de commentaires */}
                 <Container className="d-flex justify-content-between">
                     {visibleCount < comments.length && (
                         <Button className="custom-button-2" onClick={showMoreComments}>

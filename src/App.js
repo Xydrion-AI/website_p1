@@ -12,6 +12,7 @@ import Register from "./pages/register/register";
 import SignIn from "./pages/signin/signin";
 import Forgot from "./pages/forgot/forgot";
 import ArticlePage from "./compos/article.js";
+import NotFound from "./pages/404/404.js";
 
 
 /* Je ne sais pas où je peux en parler donc je vais le faire ici car il y a peu de chose.
@@ -34,7 +35,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/signin" element={<SignIn/>} />
             <Route path="/forgot" element={<Forgot/>} />
-            <Route path="/news/:id" element={<ArticlePage />} /> {/* Route dynamique pour afficher l'article */}
+            <Route path="/article/:id" element={<ArticlePage />} /> {/* Route dynamique pour afficher l'article */}
+            <Route path="/notfound" element={<NotFound />} />
           </Routes>
         </main>
         <footer>

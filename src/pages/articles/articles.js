@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Image, Form, Button } from 'react-bootstrap';
 import CommentLikeButton from '../../compos/likebutton'; 
 
-// English: Placeholder comment if I don’t finish on time; the article component is better documented
-// French: Commentaire d'espace réservé si je ne finis pas à temps ; le composant article est mieux commenté
-// I will leave this page for now because the site is working, just missing the display of articles when clicking on the links
+//Non utilisé, reste ici pour l'historique
 function Article({ user }) {
     // Default user information if no user is passed in
     // Utilisateur par défaut si aucun utilisateur n'est passé

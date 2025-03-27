@@ -4,6 +4,8 @@ import { Button } from "react-bootstrap";
 import { Container, Col, Row } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 
+//Encore du formulaire, rien de compliqué
+
 function Forgot() {
   const [verificationCode, setVerificationCode] = useState('');
 

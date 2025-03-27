@@ -13,7 +13,9 @@ ce que l'on a appris en cours notamment avec les tableaux d'objets dans lesquels
  1- Je trouve le code bien plus lisible de cette manière
  2- Il m'est plus facile de modifier mes données et d'envisager d'améliorer le code par la suite en ajoutant facilement de nouveaux éléments
  3- Je pratique ce qui a été appris en cours concernant les navbar
-*/
+
+update du 27/03/25 => J'aurais pu optimiser également cette partie en mettant les données ailleurs mais je n'aurais pas le temps
+ */
 
 function Banner() {
   const Logo = "/assets/images/Logo.png";

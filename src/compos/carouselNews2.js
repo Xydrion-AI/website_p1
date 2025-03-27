@@ -24,8 +24,9 @@ function NewCarouselNews2({ categoryKey }) {
       .catch((error) => {
         console.error('Erreur lors du chargement des articles:', error);
       });
-  }, [categoryKey]); // Le tableau de dépendances inclut categoryKey pour mettre à jour quand il change
+  }, [categoryKey]); //ma catégorie sert de filtre pour l'affichage
 
+//Carousel final pour mes articles de news
   return (
     <Container>
       <Swiper
@@ -53,12 +54,12 @@ function NewCarouselNews2({ categoryKey }) {
       >
         {items.map((item, index) => (
           <SwiperSlide key={index} className="text-color-3">
-            <Container as={Link} to={item.link} className="mx-auto text-center text-color">
+            <Container as={Link} to={`/article/${item.id}`} className="mx-auto text-center text-color">
               <img className="carouselItem" src={item.imageURI} alt={item.title || "Image non disponible"} />
               <Row className="d-flex justify-content-center">
                 <h3 className="custom-title">
-                  <Link className='text-color-2' to={item.link}>
-                    {item.articleTitle}
+                  <Link className='text-color-2' to={`/article/${item.id}`}>
+                    {item.title}
                   </Link>
                 </h3>
                 <p className="custom-description">{item.description}</p>

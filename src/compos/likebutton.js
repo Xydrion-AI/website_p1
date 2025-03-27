@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 
 const like = '/assets/images/like.svg';
 
+//Tout est dans le nom du composant
 const CommentLikeButton = ({ comment, likeComment }) => {
 
   const { id, likes = 0, likedByUser = false } = comment;

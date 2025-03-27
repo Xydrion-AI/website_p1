@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/zoom';
 import { Container, Row } from 'react-bootstrap';
 
-
+// Carousel pour mes events, rien de bien compliqué à comprendre
 function NewCarouselEvent({ items }) {
   return (
     <Container>

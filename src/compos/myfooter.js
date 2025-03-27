@@ -2,6 +2,9 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 const Logo = "/assets/images/Logo.png";
 
+//Footer que j'ai beaucoup réduit, rien de spécial si ce n'est d'avoir créer des liens avec du texte... le reste c'est surtout du css à gérer 
+// Le CSS c'est toujours un peu long à comprendre
+
 function Footer() {
     return (
         <Container fluid id='footer'>

@@ -5,9 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import { Button } from "react-bootstrap";
 
-
-
-let VerticalBanner = './asset/image/bande_img.jpg';
+//Formulaire d'inscription, c'est essentiellement du html qui attend d'être adapté pour être gérer avec une base de donnée
 
 function SignIn() {
   const [email, setEmail] = useState('');

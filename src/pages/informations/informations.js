@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 
+// Page d'information classique HTML, je pourrais mettre d'autres tartines mais ce n'est pas vraiment utile je crois...
 
 function Informations() {
     return (

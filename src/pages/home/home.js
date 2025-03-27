@@ -6,6 +6,9 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 
+
+// Je n'ai pas assez de temps pour continuer l'optimisation du code et ce n'est pas pertinent en terme de timing, en conditions réelles, je lierais mes données à mongoDB ou à un fichier json à minima pour clarifier le code
+// De la même manière que pour mes news mais la section news est la dernière section que j'ai fait...
 function Home() {
     /*Configuration de mes carousel d'images*/
     const carouselItems1 = [
@@ -70,6 +73,15 @@ function Home() {
                     <section id="aboutUs">
                         <h2 className="text-color-2 my-2">Qui sommes-nous ?</h2>
                         <p className="text-color-2 my-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est rem impedit
+                            temporibus corrupti facere nostrum culpa officia libero, animi, nobis accusamus ullam pariatur
+                            inventore minima quod ratione nihil officiis aut.
+                            Aliquam officia delectus deleniti accusamus reprehenderit eum ullam, necessitatibus saepe voluptas
+                            inventore minima similique hic esse at maxime soluta corporis, qui sit! Ad nihil eius exercitationem
+                            corporis ab eligendi blanditiis.
+                            Cum a, esse animi harum deserunt ullam laborum quaerat reiciendis odio ratione sed. Ipsam quia in,
+                            quam quis, id illum eaque sint numquam itaque, atque voluptatem eos cupiditate autem soluta?
+                            
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est rem impedit
                             temporibus corrupti facere nostrum culpa officia libero, animi, nobis accusamus ullam pariatur
                             inventore minima quod ratione nihil officiis aut.
                             Aliquam officia delectus deleniti accusamus reprehenderit eum ullam, necessitatibus saepe voluptas
